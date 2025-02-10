@@ -1,49 +1,24 @@
-# embarcatech_2025_u4c6_Interfaces_serial
-#Relatório do Projeto: Comunicação Serial e Controle de LEDs no RP2040
-1. Introdução
-Este projeto tem como objetivo consolidar os conhecimentos sobre comunicação serial em microcontroladores, utilizando a placa de desenvolvimento BitDogLab baseada no RP2040. Durante a implementação, foram explorados os protocolos UART e I2C, a manipulação de LEDs comuns e LEDs endereçáveis WS2812, e a integração de botões com interrupções e debounce via software.
+TAREFA COMUNICAÇÃO SERIAL
 
-2. Objetivos
-Compreender e aplicar comunicação serial (UART e I2C) no RP2040.
-Implementar o controle de LEDs comuns e LEDs endereçáveis WS2812.
-Utilizar interrupções (IRQ) para a interação com botões.
-Aplicar técnicas de debounce via software para evitar leituras incorretas dos botões.
-Exibir informações no display SSD1306 (I2C) e registrar eventos via Serial Monitor (UART).
-Desenvolver um código bem estruturado e comentado.
-3. Materiais Utilizados
-Placa de desenvolvimento BitDogLab (RP2040)
-Matriz de LEDs 5x5 WS2812 (conectada ao GPIO 7)
-LED RGB (GPIOs 11, 12 e 13)
-Botão A (GPIO 5)
-Botão B (GPIO 6)
-Display SSD1306 (I2C – GPIOs 14 e 15)
-4. Implementação
-4.1. Modificação da Biblioteca font.h
-Para exibição de caracteres no display SSD1306, foram adicionados caracteres minúsculos à biblioteca font.h, permitindo uma melhor exibição de informações no display.
+Este programa tem a funcionalidade de interpretar um caractere digitado via teclado no terminal serial monitor do ambiente de desenvolvimento Visual Studio Code e apresentar uma resposta tanto no serial monitor quanto na tela OLED presente na placa BitDogLab. Caso o caractere digitado seja um algarismo, a matriz de LEDs RGB presente na placa BitDogLab apresentará um padrão representando o algarismo digitado.
+O botão A presente na BitDogLab foi programado para alterar o estado do LED RGB verde (ligado/desligado) e o botão B para alterar o estado do LED RGB azul. A alteração do estado dos LEDs via botões será informado com uma mensagem tanto no serial monitor quanto na tela OLED.
 
-4.2. Comunicação Serial via UART
-O Serial Monitor do VS Code foi utilizado para permitir a entrada de caracteres, os quais eram exibidos no display SSD1306.
 
-Quando um número entre 0 e 9 era digitado, um símbolo correspondente era exibido na matriz de LEDs WS2812.
-4.3. Interação com os Botões
-Botão A: Alternava o estado do LED Verde, registrando a mudança no display SSD1306 e no Serial Monitor.
-Botão B: Alternava o estado do LED Azul, seguindo a mesma lógica de exibição de mensagens.
-Ambas as interações foram implementadas utilizando interrupções (IRQ) para evitar polling contínuo e melhorar a eficiência do sistema.
-4.4. Implementação do Debounce via Software
-O efeito bouncing dos botões foi tratado por meio de debounce via software, garantindo leituras estáveis e evitando múltiplos acionamentos indesejados.
+COMPONENTES
 
-5. Resultados Obtidos
-A comunicação serial via UART funcionou corretamente, permitindo a entrada de caracteres e exibição no display SSD1306.
-Os LEDs foram controlados com sucesso, incluindo a matriz WS2812 e o LED RGB.
-O uso de interrupções possibilitou um controle eficiente dos botões sem consumir processamento desnecessário.
-O debounce via software eliminou leituras incorretas dos botões, garantindo respostas confiáveis.
-O código foi bem estruturado e comentado, seguindo boas práticas de programação para sistemas embarcados.
+Para executar este programa, é necessário:
+  * 1 placa Raspberry Pi Pico W, com um microcontrolador RP2040;
+  * 2 LEDs (azul e verde);
+  * 1 computador com o VS Code instalado;
+  * 1 cabo USB para comunicação com o terminal serial monitor.
 
-6. Conclusão
-O projeto foi concluído com sucesso, integrando comunicação serial, controle de LEDs e botões, utilizando as funcionalidades da placa BitDogLab (RP2040). O uso de interrupções e debounce garantiu um sistema eficiente e responsivo. A simulação e testes em hardware confirmaram o funcionamento esperado, consolidando o aprendizado sobre interfaces de comunicação serial e manipulação de periféricos no RP2040.
-7. LINK DO VÍDEO:
-   
-8. Referências
-Documentação do Pico SDK
-Datasheets do RP2040 e do Display SSD1306
-Materiais didáticos da disciplina
+
+FUNCIONALIDADE DO PROGRAMA
+
+O programa recebe um caractere digitado pelo teclado via terminal serial monitor e exibe uma mensagem no terminal e no display OLED informando qual caractere foi digitado. Caso o caractere digitado seja um algarismo, essa algarismo também é exibido na matriz de LEDs da placa BitDogLab.
+Os botões A e B presentes nesse equipamento alternam o estado dos LEDs verde e azul, respectivamente. A função responsável por realizar essa alteração foi programada como uma rotina de interrupção na execução do código.
+
+
+LINK DO VÍDEO DE APRESENTAÇÃO DO PROJETO
+
+https://drive.google.com/file/d/1V4HZtlW5pEooCiEL_AjL7lYv1aOkjbdJ/view?usp=sharing
