@@ -39,7 +39,7 @@ O debounce via software eliminou leituras incorretas dos botões, garantindo res
 O código foi bem estruturado e comentado, seguindo boas práticas de programação para sistemas embarcados.
 6. Conclusão
 O projeto foi concluído com sucesso, integrando comunicação serial, controle de LEDs e botões, utilizando as funcionalidades da placa BitDogLab (RP2040). O uso de interrupções e debounce garantiu um sistema eficiente e responsivo. A simulação e testes em hardware confirmaram o funcionamento esperado, consolidando o aprendizado sobre interfaces de comunicação serial e manipulação de periféricos no RP2040.
-7. LINK DO VÍDEO: 
+7. LINK DO VÍDEO: https://drive.google.com/file/d/15XazpwhWtz4TtgdNLeta0kpBxJv7hNKz/view?usp=sharing
 8. Referências
 Documentação do Pico SDK
 Datasheets do RP2040 e do Display SSD1306
