@@ -1,0 +1,1 @@
+# embarcatech_2025_u4c6_Interfaces_serial
